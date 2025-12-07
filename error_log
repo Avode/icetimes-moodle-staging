@@ -1,0 +1,73 @@
+[23-Nov-2025 07:01:28 Asia/Kuala_Lumpur] PHP Warning:  Constant PASSWORD_DEFAULT already defined in /home2/icetimes/public_html/update_pass.php on line 17
+[01-Dec-2025 11:37:38 Asia/Kuala_Lumpur] Default exception handler: Sorry, the requested file could not be found Debug: 
+Error code: filenotfound
+* line 2161 of /lib/filelib.php: core\exception\moodle_exception thrown
+* line 5368 of /lib/filelib.php: call to send_file_not_found()
+* line 50 of /pluginfile.php: call to file_pluginfile()
+
+[01-Dec-2025 11:37:52 Asia/Kuala_Lumpur] Default exception handler: Sorry, the requested file could not be found Debug: 
+Error code: filenotfound
+* line 2161 of /lib/filelib.php: core\exception\moodle_exception thrown
+* line 5368 of /lib/filelib.php: call to send_file_not_found()
+* line 50 of /pluginfile.php: call to file_pluginfile()
+
+[01-Dec-2025 11:40:31 Asia/Kuala_Lumpur] Default exception handler: Sorry, the requested file could not be found Debug: 
+Error code: filenotfound
+* line 2161 of /lib/filelib.php: core\exception\moodle_exception thrown
+* line 5368 of /lib/filelib.php: call to send_file_not_found()
+* line 50 of /pluginfile.php: call to file_pluginfile()
+
+[01-Dec-2025 11:53:25 Asia/Kuala_Lumpur] Default exception handler: Sorry, the requested file could not be found Debug: 
+Error code: filenotfound
+* line 2161 of /lib/filelib.php: core\exception\moodle_exception thrown
+* line 5368 of /lib/filelib.php: call to send_file_not_found()
+* line 50 of /pluginfile.php: call to file_pluginfile()
+
+[01-Dec-2025 11:54:36 Asia/Kuala_Lumpur] Debugging: Capability "local/studentinfo:edit" was not found! This has to be fixed in code. in 
+* line 458 of /lib/accesslib.php: call to debugging()
+* line 36 of /local/studentinfo/lib.php: call to has_capability()
+* line 5375 of /lib/filelib.php: call to local_studentinfo_pluginfile()
+* line 50 of /pluginfile.php: call to file_pluginfile()
+
+[01-Dec-2025 11:54:36 Asia/Kuala_Lumpur] Default exception handler: Sorry, the requested file could not be found Debug: 
+Error code: filenotfound
+* line 2161 of /lib/filelib.php: core\exception\moodle_exception thrown
+* line 5378 of /lib/filelib.php: call to send_file_not_found()
+* line 50 of /pluginfile.php: call to file_pluginfile()
+
+[01-Dec-2025 11:56:27 Asia/Kuala_Lumpur] Debugging: Capability "local/studentinfo:edit" was not found! This has to be fixed in code. in 
+* line 458 of /lib/accesslib.php: call to debugging()
+* line 36 of /local/studentinfo/lib.php: call to has_capability()
+* line 5375 of /lib/filelib.php: call to local_studentinfo_pluginfile()
+* line 50 of /pluginfile.php: call to file_pluginfile()
+
+[01-Dec-2025 11:56:27 Asia/Kuala_Lumpur] Default exception handler: Sorry, the requested file could not be found Debug: 
+Error code: filenotfound
+* line 2161 of /lib/filelib.php: core\exception\moodle_exception thrown
+* line 5378 of /lib/filelib.php: call to send_file_not_found()
+* line 50 of /pluginfile.php: call to file_pluginfile()
+
+[01-Dec-2025 11:59:22 Asia/Kuala_Lumpur] Debugging: Capability "local/studentinfo:edit" was not found! This has to be fixed in code. in 
+* line 458 of /lib/accesslib.php: call to debugging()
+* line 36 of /local/studentinfo/lib.php: call to has_capability()
+* line 5375 of /lib/filelib.php: call to local_studentinfo_pluginfile()
+* line 50 of /pluginfile.php: call to file_pluginfile()
+
+[01-Dec-2025 11:59:22 Asia/Kuala_Lumpur] Default exception handler: Sorry, the requested file could not be found Debug: 
+Error code: filenotfound
+* line 2161 of /lib/filelib.php: core\exception\moodle_exception thrown
+* line 5378 of /lib/filelib.php: call to send_file_not_found()
+* line 50 of /pluginfile.php: call to file_pluginfile()
+
+[01-Dec-2025 12:02:06 Asia/Kuala_Lumpur] Debugging: Capability "local/studentinfo:edit" was not found! This has to be fixed in code. in 
+* line 458 of /lib/accesslib.php: call to debugging()
+* line 36 of /local/studentinfo/lib.php: call to has_capability()
+* line 5375 of /lib/filelib.php: call to local_studentinfo_pluginfile()
+* line 50 of /pluginfile.php: call to file_pluginfile()
+
+[01-Dec-2025 12:02:06 Asia/Kuala_Lumpur] Default exception handler: Sorry, the requested file could not be found Debug: 
+Error code: filenotfound
+* line 2161 of /lib/filelib.php: core\exception\moodle_exception thrown
+* line 5378 of /lib/filelib.php: call to send_file_not_found()
+* line 50 of /pluginfile.php: call to file_pluginfile()
+

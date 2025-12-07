@@ -1,0 +1,68 @@
+/* ============================================
+   Unified KPI Card Style for all OU/Student plugins
+   ============================================ */
+
+.kpi-card {
+    border-radius: 18px;
+    padding: 24px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+    min-height: 150px;
+}
+
+.kpi-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: #fff;
+}
+
+.kpi-card .kpi-subtitle {
+    font-size: 0.9rem;
+    opacity: 0.90;
+    margin-bottom: 8px;
+}
+
+.kpi-card .kpi-value {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Optional small description below the number */
+.kpi-card .kpi-extra {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+/* Open / action button (optional) */
+.kpi-open-btn {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.35);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #fff !important;
+    text-decoration: none;
+    backdrop-filter: blur(4px);
+}
+
+/* Blue gradient – like Bulk Assign / Attendance / Fees */
+.kpi-blue {
+    background: linear-gradient(135deg, #4DB5FF 0%, #A6E1FF 100%);
+}
+
+/* Red gradient – like Intake Manager / Student Lookup */
+.kpi-red {
+    background: linear-gradient(135deg, #CA3A3A 0%, #EB7373 100%);
+}
+
+/* Dark blue gradient – like GPA Snapshot / Manage Leaves */
+.kpi-blue-dark {
+    background: linear-gradient(135deg, #0E4DAD 0%, #1D7BE8 100%);
+}

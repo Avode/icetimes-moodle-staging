@@ -1,0 +1,6 @@
+[27-Nov-2025 23:58:08 Asia/Kuala_Lumpur] Default exception handler: Archive (ZIP) filetype cannot be accepted. Debug: 
+Error code: invalidfiletype
+* line 189 of /repository/upload/lib.php: core\exception\moodle_exception thrown
+* line 64 of /repository/upload/lib.php: call to repository_upload->process_upload()
+* line 328 of /repository/repository_ajax.php: call to repository_upload->upload()
+

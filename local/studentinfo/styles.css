@@ -1,0 +1,199 @@
+/* Action cards (top row) */
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.action-card {
+  border-radius: 12px;
+  padding: 16px;
+  color: #fff;
+}
+.action-card .action-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 6px; }
+.action-card .action-desc { font-size: .9rem; margin-bottom: 12px; }
+.action-card .action-cta { background: rgba(255,255,255,.2); padding:6px 12px; border-radius:6px; color:#fff; text-decoration:none; }
+
+/* Background colors */
+.act-blue {
+    background: linear-gradient(135deg, #3CA6FF 0%, #6EBEFF 55%, #A7D8FF 100%);
+}
+.act-red { 
+    background: linear-gradient(135deg, #9B1C1C 0%, #D64545 55%, #F07171 100%);
+}
+.act-darkblue { 
+    background: linear-gradient(135deg, #0B3D91 0%, #125DBA 55%, #1B77E5 100%);
+}
+.act-yellow { 
+    background: linear-gradient(135deg, #FFD400 0%, #FFDD3C 55%, #FFEA61 100%);
+}
+
+/* KPI cards */
+.kpi-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap:16px;
+}
+.kpi-card {
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:14px;
+  text-align:center;
+}
+.kpi-card .kpi-title { font-size:.9rem; color:#475569; margin-bottom:6px; }
+.kpi-card h2 { margin:0; font-size:1.6rem; font-weight:700; color:#1e293b; }
+
+/* Grid: 3 wide, wraps on small screens */
+.orgcards{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:18px;
+}
+@media (max-width: 1100px){
+  .orgcards{ grid-template-columns:1fr; }
+}
+
+/* Org Structure–style feature card */
+.orgcard{
+  position:relative;
+  display:block;
+  padding:26px;
+  border-radius:18px;
+  color:#fff;
+  text-decoration:none;
+  box-shadow:0 14px 32px rgba(0,0,0,.16);
+  transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+  border:0;
+}
+.orgcard:hover{
+  transform:translateY(-2px);
+  box-shadow:0 20px 38px rgba(0,0,0,.2);
+}
+
+/* Title & subtitle */
+.orgcard-title{
+  font-size:1.6rem;
+  font-weight:800;
+  letter-spacing:.3px;
+  text-shadow:0 2px 10px rgba(0,0,0,.18);
+  margin-bottom:6px;
+}
+.orgcard-sub{
+  font-size:1rem;
+  opacity:.95;
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.08));
+}
+
+/* CTA pill (bottom-right) */
+.orgcard-cta{
+  position:absolute;
+  right:22px;
+  bottom:22px;
+  background:#CFE2FF;
+  color:#0B3C91;
+  border:2px solid #0B3C91;
+  border-radius:12px;
+  padding:8px 14px;
+  font-weight:700;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);
+  transition:filter .12s ease, transform .12s ease;
+}
+.orgcard:hover .orgcard-cta{ filter:brightness(.94); }
+
+/* Gradient themes (tune if you want exact hues) */
+.org-blue{
+  background: linear-gradient(135deg, #3CA6FF 0%, #6EBEFF 55%, #A7D8FF 100%);
+}
+.org-red{
+  background: linear-gradient(135deg, #9B1C1C 0%, #D64545 55%, #F07171 100%);
+}
+.org-navy{
+  background: linear-gradient(135deg, #0B3D91 0%, #125DBA 55%, #1B77E5 100%);
+}
+
+/* OU bar layout */
+.lib-oubar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.lib-oubar h3 { margin: 0; }
+
+/* Manage Resources (light/black) */
+.action-card.act-yellow .action-title,
+.action-card.act-yellow .action-desc { color: #000; }
+
+.action-cta-group { display: flex; gap: 10px; margin-top: 10px; }
+.action-cta-group .action-cta {
+  flex: 1; text-align: center; padding: 8px 12px; border-radius: 6px;
+  color: #111; text-decoration: none; border: 1px solid #e8f802;
+  transition: background .2s;
+}
+.action-cta-group .action-cta:hover { background: #eee; }
+
+/* Biblio cover thumbnail */
+.lib-cover-thumb {
+  width: 56px;
+  height: 72px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #f2f2f2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.lib-cover-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Make <select> match .form-control (Bootstrap) height */
+.form-select.lib-eq-height {
+  /* Match Bootstrap .form-control vertical rhythm */
+  padding-top: .375rem;
+  padding-bottom: .375rem;
+  /* Ensure consistent overall height with text inputs */
+  min-height: calc(1.5em + .75rem + 2px);
+  /* Align text baseline similar to inputs */
+  line-height: 1.5;
+}
+
+/* Optional: keep font/size consistent with inputs site-wide on library pages */
+.form-select.lib-eq-height,
+.form-control {
+  font-size: 1rem;
+}
+/* Apply to all selects on Library manage pages */
+body.path-local-library-manage .form-select {
+  padding-top: .375rem;
+  padding-bottom: .375rem;
+  min-height: calc(1.5em + .75rem + 2px);
+  line-height: 1.5;
+}
+
+/* Resource thumbnail on list */
+.lib-thumb {
+  width: 56px;
+  height: 72px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #f2f2f2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.lib-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Resource thumbnail on list */
+.lib-thumb { width:56px; height:72px; border-radius:4px; overflow:hidden; background:#f2f2f2; display:inline-flex; align-items:center; justify-content:center; }
+.lib-thumb img { width:100%; height:100%; object-fit:cover; display:block; }

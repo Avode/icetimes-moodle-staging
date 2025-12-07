@@ -1,0 +1,164 @@
+<div class="container-fluid local-org-dashboard">
+
+    <style>
+    .local-org-dashboard .org-kpi-card {
+        border-radius: 18px;
+        padding: 24px;
+        color: #ffffff;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        position: relative;
+        overflow: hidden;
+        min-height: 150px;
+    }
+    .local-org-dashboard .org-kpi-card h5 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+        color: #ffffff;
+    }
+    .local-org-dashboard .org-kpi-subtitle {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        margin-bottom: 4px;
+    }
+    .local-org-dashboard .org-kpi-value {
+        font-size: 2.6rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+    .local-org-dashboard .org-kpi-card p {
+        margin-bottom: 10px;
+    }
+    .local-org-dashboard .org-kpi-btn {
+        padding: 6px 14px;
+        background: rgba(255,255,255,0.35);
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #ffffff;
+        text-decoration: none;
+        border: none;
+    }
+    .local-org-dashboard .org-kpi-btn.btn-outline {
+        background: transparent;
+        border: 1px solid rgba(255,255,255,0.6);
+    }
+    .local-org-dashboard .org-kpi-blue {
+        background: linear-gradient(135deg, #4DB5FF 0%, #A6E1FF 100%);
+    }
+    .local-org-dashboard .org-kpi-blue-dark {
+        background: linear-gradient(135deg, #0E4DAD 0%, #1D7BE8 100%);
+    }
+    </style>
+
+    <!-- Header + KPI -->
+    <div class="row mb-4">
+        <div class="col-md-6 mb-3">
+            <div class="org-kpi-card org-kpi-blue d-flex flex-column justify-content-center text-center text-md-start">
+                <h5>{{#str}}pluginname, local_organization{{/str}}</h5>
+                <div class="org-kpi-subtitle">{{#str}}totalunits, local_organization{{/str}}</div>
+                <div class="org-kpi-value">{{totalou}}</div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3 d-flex align-items-stretch">
+            <div class="org-kpi-card org-kpi-blue-dark w-100 d-flex flex-column justify-content-center text-center text-md-start">
+                <h5>{{#str}}quickactions, local_organization{{/str}}</h5>
+                <p class="org-kpi-subtitle">
+                    {{#str}}quickactionsdesc, local_organization{{/str}}
+                </p>
+                <div class="mt-2">
+                    <a href="{{wwwroot}}/local/organization/edit.php"
+                       class="org-kpi-btn me-2 mb-2">
+                        <i class="icon fa fa-plus" aria-hidden="true"></i>
+                        {{#str}}addou, local_organization{{/str}}
+                    </a>
+                    <a href="{{wwwroot}}/local/organization/index.php"
+                       class="org-kpi-btn btn-outline mb-2">
+                        <i class="icon fa fa-refresh" aria-hidden="true"></i>
+                        {{#str}}refresh, local_organization{{/str}}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data table card -->
+    <div class="card shadow-sm">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">
+                {{#str}}organizationlist, local_organization{{/str}}
+            </h5>
+            <span class="badge bg-info text-dark">
+                {{totalou}} {{#str}}units, local_organization{{/str}}
+            </span>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="orgtable" class="table table-striped table-bordered mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>{{#str}}fullname{{/str}}</th>
+                            <th>{{#str}}shortname{{/str}}</th>
+                            <th>{{#str}}oucode, local_organization{{/str}}</th>
+                            <th>{{#str}}district, local_organization{{/str}}</th>
+                            <th>{{#str}}state, local_organization{{/str}}</th>
+                            <th>{{#str}}commandantcol, local_organization{{/str}}</th>
+                            <th>{{#str}}admincol, local_organization{{/str}}</th>
+                            <th style="width: 160px;">{{#str}}actions, local_organization{{/str}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#units}}
+                        <tr>
+                            <td>{{fullname}}</td>
+                            <td><code>{{shortname}}</code></td>
+                            <td>{{oucode}}</td>
+                            <td>{{district}}</td>
+                            <td>{{state}}</td>
+                            <td>
+                                {{#commandant}}
+                                    <div>{{commandant}}</div>
+                                    {{#commandantem}}
+                                        <div class="text-muted small">{{commandantem}}</div>
+                                    {{/commandantem}}
+                                {{/commandant}}
+                            </td>
+                            <td>
+                                {{#admin}}
+                                    <div>{{admin}}</div>
+                                    {{#adminem}}
+                                        <div class="text-muted small">{{adminem}}</div>
+                                    {{/adminem}}
+                                {{/admin}}
+                            </td>
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <a href="{{../wwwroot}}/local/organization/edit.php?id={{id}}"
+                                       class="btn btn-warning">
+                                        <i class="icon fa fa-pencil" aria-hidden="true"></i>
+                                        {{#str}}edit{{/str}}
+                                    </a>
+                                    <a href="{{../wwwroot}}/local/organization/delete.php?id={{id}}"
+                                       class="btn btn-danger"
+                                       onclick="return confirm('{{#str}}confirmdelete, local_organization{{/str}}');">
+                                        <i class="icon fa fa-trash" aria-hidden="true"></i>
+                                        {{#str}}delete{{/str}}
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    {{/units}}
+                    {{^units}}
+                        <tr>
+                            <td colspan="8" class="text-center text-muted">
+                                {{#str}}nounits, local_organization{{/str}}
+                            </td>
+                        </tr>
+                    {{/units}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

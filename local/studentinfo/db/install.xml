@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMLDB PATH="local/studentinfo/db" VERSION="2025082103" COMMENT="Student Info plugin tables for Moodle">
+
+  <TABLES>
+
+    <TABLE NAME="local_studentinfo" COMMENT="Extended student profile linked to mdl_user">
+      <FIELDS>
+        <FIELD NAME="id"               TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="userid"           TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true"/>
+
+        <FIELD NAME="pangkat"          TYPE="char"   LENGTH="100" NOTNULL="false"/>
+        <FIELD NAME="tentera_no"       TYPE="char"   LENGTH="50"  NOTNULL="false" COMMENT="No Tentera"/>
+        <FIELD NAME="perkhidmatan"     TYPE="char"   LENGTH="20"  NOTNULL="false" COMMENT="DARAT/LAUT/UDARA"/>
+        <FIELD NAME="rejimen"          TYPE="char"   LENGTH="150" NOTNULL="false" COMMENT="Rejimen/Kor/Cawang"/>
+        <FIELD NAME="pengambilan"      TYPE="char"   LENGTH="150" NOTNULL="false" COMMENT="ATMA atau Luar Negara"/>
+
+        <FIELD NAME="tarikh_masuk"     TYPE="int"    LENGTH="10" NOTNULL="false" UNSIGNED="true"/>
+        <FIELD NAME="jenis_tauliah"    TYPE="char"   LENGTH="100" NOTNULL="false"/>
+        <FIELD NAME="tarikh_tauliah"   TYPE="int"    LENGTH="10" NOTNULL="false" UNSIGNED="true"/>
+        <FIELD NAME="tarikh_tamat"     TYPE="int"    LENGTH="10" NOTNULL="false" UNSIGNED="true"/>
+
+        <FIELD NAME="tarikh_lahir"     TYPE="int"    LENGTH="10" NOTNULL="false" UNSIGNED="true"/>
+        <FIELD NAME="tempat_lahir"     TYPE="char"   LENGTH="120" NOTNULL="false"/>
+        <FIELD NAME="berat_kg"         TYPE="number" LENGTH="10" DECIMALS="2" NOTNULL="false"/>
+        <FIELD NAME="tinggi_m"         TYPE="number" LENGTH="10" DECIMALS="3" NOTNULL="false"/>
+        <FIELD NAME="bmi"              TYPE="number" LENGTH="10" DECIMALS="2" NOTNULL="false"/>
+        <FIELD NAME="darah"            TYPE="char"   LENGTH="5"  NOTNULL="false"/>
+        <FIELD NAME="bangsa"           TYPE="char"   LENGTH="50" NOTNULL="false"/>
+        <FIELD NAME="agama"            TYPE="char"   LENGTH="50" NOTNULL="false"/>
+        <FIELD NAME="warganegara"      TYPE="char"   LENGTH="60" NOTNULL="false"/>
+        <FIELD NAME="taraf_kahwin"     TYPE="char"   LENGTH="30" NOTNULL="false"/>
+
+        <FIELD NAME="telefon"          TYPE="char"   LENGTH="40"  NOTNULL="false"/>
+        <FIELD NAME="email"            TYPE="char"   LENGTH="254" NOTNULL="false"/>
+
+        <FIELD NAME="batd11_nilaian"   TYPE="number" LENGTH="10" DECIMALS="2" NOTNULL="false"/>
+        <FIELD NAME="batd11_tahun"     TYPE="int"    LENGTH="10" NOTNULL="false" UNSIGNED="true"/>
+        <FIELD NAME="adfelps_listening" TYPE="int"   LENGTH="2"  NOTNULL="false"/>
+        <FIELD NAME="adfelps_speaking"  TYPE="int"   LENGTH="2"  NOTNULL="false"/>
+        <FIELD NAME="adfelps_reading"   TYPE="int"   LENGTH="2"  NOTNULL="false"/>
+        <FIELD NAME="adfelps_writing"   TYPE="int"   LENGTH="2"  NOTNULL="false"/>
+
+        <FIELD NAME="passport_no"      TYPE="char"   LENGTH="30" NOTNULL="false"/>
+        <FIELD NAME="passport_expiry"  TYPE="int"    LENGTH="10" NOTNULL="false" UNSIGNED="true"/>
+
+        <FIELD NAME="negara_dilawati"  TYPE="text"   NOTNULL="false"/>
+        <FIELD NAME="hobi"             TYPE="char"   LENGTH="150" NOTNULL="false"/>
+
+        <FIELD NAME="timecreated"      TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+        <FIELD NAME="timemodified"     TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary"    TYPE="primary" FIELDS="id"/>
+        <KEY NAME="userid_fk"  TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="userid_uk"  TYPE="unique"  FIELDS="userid"/>
+      </KEYS>
+      <!-- No INDEX entries here to avoid the UNIQUE attribute bug -->
+    </TABLE>
+
+    <TABLE NAME="local_student_academic" COMMENT="Academic qualifications">
+      <FIELDS>
+        <FIELD NAME="id"           TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="studentid"    TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true"/>
+        <FIELD NAME="tahun"        TYPE="int"    LENGTH="10" NOTNULL="false" UNSIGNED="true"/>
+        <FIELD NAME="kelulusan"    TYPE="char"   LENGTH="255" NOTNULL="true"/>
+        <FIELD NAME="timecreated"  TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+        <FIELD NAME="timemodified" TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary"    TYPE="primary" FIELDS="id"/>
+        <KEY NAME="student_fk" TYPE="foreign" FIELDS="studentid" REFTABLE="local_studentinfo" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+
+    <TABLE NAME="local_student_language" COMMENT="Languages with proficiency">
+      <FIELDS>
+        <FIELD NAME="id"           TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="studentid"    TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true"/>
+        <FIELD NAME="bahasa"       TYPE="char"   LENGTH="80" NOTNULL="true"/>
+        <FIELD NAME="baca"         TYPE="char"   LENGTH="20" NOTNULL="false"/>
+        <FIELD NAME="lisan"        TYPE="char"   LENGTH="20" NOTNULL="false"/>
+        <FIELD NAME="tulis"        TYPE="char"   LENGTH="20" NOTNULL="false"/>
+        <FIELD NAME="timecreated"  TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+        <FIELD NAME="timemodified" TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary"    TYPE="primary" FIELDS="id"/>
+        <KEY NAME="student_fk" TYPE="foreign" FIELDS="studentid" REFTABLE="local_studentinfo" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+
+    <TABLE NAME="local_student_course" COMMENT="Courses attended and results">
+      <FIELDS>
+        <FIELD NAME="id"           TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="studentid"    TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true"/>
+        <FIELD NAME="nama"         TYPE="char"   LENGTH="255" NOTNULL="true"/>
+        <FIELD NAME="tempat"       TYPE="char"   LENGTH="150" NOTNULL="false"/>
+        <FIELD NAME="mula"         TYPE="int"    LENGTH="10" NOTNULL="false" UNSIGNED="true"/>
+        <FIELD NAME="tamat"        TYPE="int"    LENGTH="10" NOTNULL="false" UNSIGNED="true"/>
+        <FIELD NAME="keputusan"    TYPE="char"   LENGTH="50"  NOTNULL="false"/>
+        <FIELD NAME="timecreated"  TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+        <FIELD NAME="timemodified" TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary"    TYPE="primary" FIELDS="id"/>
+        <KEY NAME="student_fk" TYPE="foreign" FIELDS="studentid" REFTABLE="local_studentinfo" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+
+    <TABLE NAME="local_student_rank" COMMENT="Rank timeline and seniority">
+      <FIELDS>
+        <FIELD NAME="id"                 TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="studentid"          TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true"/>
+        <FIELD NAME="pangkat"            TYPE="char"   LENGTH="80" NOTNULL="true"/>
+        <FIELD NAME="tarikh"             TYPE="int"    LENGTH="10" NOTNULL="false" UNSIGNED="true"/>
+        <FIELD NAME="kekananan"          TYPE="char"   LENGTH="80" NOTNULL="false"/>
+        <FIELD NAME="tarikh_kekananan"   TYPE="int"    LENGTH="10" NOTNULL="false" UNSIGNED="true"/>
+        <FIELD NAME="timecreated"        TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+        <FIELD NAME="timemodified"       TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary"    TYPE="primary" FIELDS="id"/>
+        <KEY NAME="student_fk" TYPE="foreign" FIELDS="studentid" REFTABLE="local_studentinfo" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+
+    <TABLE NAME="local_student_posting" COMMENT="Pertukaran dan Tumpangan">
+      <FIELDS>
+        <FIELD NAME="id"           TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="studentid"    TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true"/>
+        <FIELD NAME="jawatan"      TYPE="char"   LENGTH="150" NOTNULL="false"/>
+        <FIELD NAME="pasukan"      TYPE="char"   LENGTH="150" NOTNULL="false"/>
+        <FIELD NAME="negeri"       TYPE="char"   LENGTH="100" NOTNULL="false"/>
+        <FIELD NAME="mula"         TYPE="int"    LENGTH="10" NOTNULL="false" UNSIGNED="true"/>
+        <FIELD NAME="tamat"        TYPE="int"    LENGTH="10" NOTNULL="false" UNSIGNED="true"/>
+        <FIELD NAME="timecreated"  TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+        <FIELD NAME="timemodified" TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary"    TYPE="primary" FIELDS="id"/>
+        <KEY NAME="student_fk" TYPE="foreign" FIELDS="studentid" REFTABLE="local_studentinfo" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+
+    <TABLE NAME="local_student_family" COMMENT="Waris pasangan dan anak">
+      <FIELDS>
+        <FIELD NAME="id"            TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="studentid"     TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true"/>
+        <FIELD NAME="hubungan"      TYPE="char"   LENGTH="30" NOTNULL="true"/>
+        <FIELD NAME="nama"          TYPE="char"   LENGTH="150" NOTNULL="true"/>
+        <FIELD NAME="ic"            TYPE="char"   LENGTH="30" NOTNULL="false"/>
+        <FIELD NAME="darah"         TYPE="char"   LENGTH="5"  NOTNULL="false"/>
+        <FIELD NAME="bangsa"        TYPE="char"   LENGTH="50" NOTNULL="false"/>
+        <FIELD NAME="warganegara"   TYPE="char"   LENGTH="60" NOTNULL="false"/>
+        <FIELD NAME="alamat"        TYPE="text"   NOTNULL="false"/>
+        <FIELD NAME="telefon"       TYPE="char"   LENGTH="40" NOTNULL="false"/>
+        <FIELD NAME="pekerjaan"     TYPE="char"   LENGTH="120" NOTNULL="false"/>
+        <FIELD NAME="jantina"       TYPE="char"   LENGTH="10" NOTNULL="false"/>
+        <FIELD NAME="tarikh_lahir"  TYPE="int"    LENGTH="10" NOTNULL="false" UNSIGNED="true"/>
+        <FIELD NAME="timecreated"   TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+        <FIELD NAME="timemodified"  TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary"    TYPE="primary" FIELDS="id"/>
+        <KEY NAME="student_fk" TYPE="foreign" FIELDS="studentid" REFTABLE="local_studentinfo" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+
+    <TABLE NAME="local_student_award" COMMENT="Pingat dan tarikh penganugerahan">
+      <FIELDS>
+        <FIELD NAME="id"           TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="studentid"    TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true"/>
+        <FIELD NAME="nama"         TYPE="char"   LENGTH="150" NOTNULL="true"/>
+        <FIELD NAME="singkatan"    TYPE="char"   LENGTH="20"  NOTNULL="false"/>
+        <FIELD NAME="gelaran"      TYPE="char"   LENGTH="80"  NOTNULL="false"/>
+        <FIELD NAME="tarikh"       TYPE="int"    LENGTH="10"  NOTNULL="false" UNSIGNED="true"/>
+        <FIELD NAME="timecreated"  TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+        <FIELD NAME="timemodified" TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary"    TYPE="primary" FIELDS="id"/>
+        <KEY NAME="student_fk" TYPE="foreign" FIELDS="studentid" REFTABLE="local_studentinfo" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+
+    <TABLE NAME="local_student_insurance" COMMENT="Insurans atau Takaful">
+      <FIELDS>
+        <FIELD NAME="id"            TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="studentid"     TYPE="int"    LENGTH="10" NOTNULL="true" UNSIGNED="true"/>
+        <FIELD NAME="penyedia"      TYPE="char"   LENGTH="120" NOTNULL="true"/>
+        <FIELD NAME="jumlah_unit"   TYPE="int"    LENGTH="10" NOTNULL="false" UNSIGNED="true"/>
+        <FIELD NAME="no_polis"      TYPE="char"   LENGTH="80"  NOTNULL="false"/>
+        <FIELD NAME="timecreated"   TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+        <FIELD NAME="timemodified"  TYPE="int"    LENGTH="10" NOTNULL="true"  UNSIGNED="true"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary"    TYPE="primary" FIELDS="id"/>
+        <KEY NAME="student_fk" TYPE="foreign" FIELDS="studentid" REFTABLE="local_studentinfo" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+
+  </TABLES>
+</XMLDB>

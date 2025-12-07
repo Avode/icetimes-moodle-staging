@@ -1,0 +1,24 @@
+[05-Dec-2025 16:27:49 Asia/Kuala_Lumpur] Debugging: Callback before_http_headers in local_profileguard component should be migrated to new hook callback for core\hook\output\before_http_headers in 
+* line 7246 of /lib/moodlelib.php: call to debugging()
+* line 7310 of /lib/moodlelib.php: call to {closure}()
+* line 47 of /lib/classes/hook/output/before_http_headers.php: call to get_plugins_with_function()
+* line 858 of /lib/classes/output/core_renderer.php: call to core\hook\output\before_http_headers->process_legacy_callbacks()
+* line ? of unknownfile: call to core\output\core_renderer->header()
+* line 109 of /lib/classes/output/bootstrap_renderer.php: call to call_user_func_array()
+* line 410 of /lib/external/externallib.php: call to core\output\bootstrap_renderer->__call()
+* line ? of unknownfile: call to core_external::get_fragment()
+* line 253 of /lib/external/classes/external_api.php: call to call_user_func_array()
+* line 83 of /lib/ajax/service.php: call to core_external\external_api::call_external_function()
+
+[06-Dec-2025 20:55:25 Asia/Kuala_Lumpur] Debugging: Callback before_http_headers in local_profileguard component should be migrated to new hook callback for core\hook\output\before_http_headers in 
+* line 7246 of /lib/moodlelib.php: call to debugging()
+* line 7310 of /lib/moodlelib.php: call to {closure}()
+* line 47 of /lib/classes/hook/output/before_http_headers.php: call to get_plugins_with_function()
+* line 858 of /lib/classes/output/core_renderer.php: call to core\hook\output\before_http_headers->process_legacy_callbacks()
+* line ? of unknownfile: call to core\output\core_renderer->header()
+* line 109 of /lib/classes/output/bootstrap_renderer.php: call to call_user_func_array()
+* line 410 of /lib/external/externallib.php: call to core\output\bootstrap_renderer->__call()
+* line ? of unknownfile: call to core_external::get_fragment()
+* line 253 of /lib/external/classes/external_api.php: call to call_user_func_array()
+* line 83 of /lib/ajax/service.php: call to core_external\external_api::call_external_function()
+

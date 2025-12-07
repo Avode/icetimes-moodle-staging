@@ -1,0 +1,85 @@
+<div class="studentlookup-wrapper">
+
+    <h2 class="studentlookup-page-title">{{pagetitle}}</h2>
+
+    <!-- Top summary + quick actions (like Organization card) -->
+    <div class="card studentlookup-maincard mb-4">
+        <div class="card-body row">
+            <div class="col-md-8 border-end">
+                <div class="text-center mb-2">
+                    <div class="fw-semibold">{{card.title}}</div>
+                </div>
+                <div class="text-center studentlookup-bignumber">
+                    {{card.value}}
+                </div>
+                <div class="text-center studentlookup-subtitle">
+                    {{card.subtitle}}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="fw-semibold mb-1">Quick actions</div>
+                <p class="text-muted small">
+                    {{quickactions.description}}
+                </p>
+                <a href="{{quickactions.addurl}}" class="btn btn-primary w-100 mb-2">
+                    + {{quickactions.addlabel}}
+                </a>
+                <a href="{{quickactions.refreshurl}}" class="btn btn-outline-secondary w-100">
+                    {{quickactions.refreshlabel}}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <ul class="nav nav-tabs mb-3">
+        {{#tabs}}
+        <li class="nav-item">
+            <a href="{{url}}" class="nav-link {{#active}}active{{/active}}">{{label}}</a>
+        </li>
+        {{/tabs}}
+    </ul>
+
+    <!-- Table card -->
+    <div class="card studentlookup-tablecard">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div class="fw-semibold">{{table.title}}</div>
+            <span class="badge bg-info text-dark studentlookup-badge-pill">
+                {{table.badge}}
+            </span>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered studentlookup-datatable">
+                    <thead>
+                        <tr>
+                            {{#table.columns}}
+                                <th>{{.}}</th>
+                            {{/table.columns}}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#table.hasrows}}
+                            {{#table.rows}}
+                                <tr>
+                                    {{#cells}}
+                                        <td>{{{value}}}</td>
+                                    {{/cells}}
+                                </tr>
+                            {{/table.rows}}
+                        {{/table.hasrows}}
+
+                        {{^table.hasrows}}
+                            <tr>
+                                <td colspan="{{table.colspan}}" class="text-center text-muted">
+                                    No records found.
+                                </td>
+                            </tr>
+                        {{/table.hasrows}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
