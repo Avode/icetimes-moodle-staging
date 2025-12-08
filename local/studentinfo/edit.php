@@ -12,6 +12,7 @@ $context = context_system::instance();
 global $DB, $PAGE, $OUTPUT, $SESSION, $USER;
 $userid = required_param('userid', PARAM_INT);
 $user   = $DB->get_record('user', ['id'=>$userid, 'deleted'=>0], '*', MUST_EXIST);
+$activetab = optional_param('tab', 'sec_identity', PARAM_ALPHANUMEXT);
 
 // ===== Permission model: edit-own always allowed; edit-others needs capability.
 $caneditothers = has_capability('local/studentinfo:manage', $context);
@@ -20,10 +21,10 @@ if (!$caneditothers && $USER->id != $userid) {
     redirect(new moodle_url('/local/studentinfo/edit.php', ['userid'=>$USER->id]), get_string('nopermissions', 'error'));
 }
 
-$userid = required_param('userid', PARAM_INT);
-$user   = $DB->get_record('user', ['id'=>$userid, 'deleted'=>0], '*', MUST_EXIST);
-
-$PAGE->set_url(new moodle_url('/local/studentinfo/edit.php', ['userid'=>$userid]));
+$PAGE->set_url(new moodle_url('/local/studentinfo/edit.php', [
+    'userid' => $userid,
+    'tab'    => $activetab,
+]));
 $PAGE->set_context($context);
 $PAGE->set_title(get_string('edit', 'local_studentinfo').': '.fullname($user));
 $PAGE->set_heading(get_string('pluginname', 'local_studentinfo'));
@@ -218,6 +219,7 @@ $mform = new \local_studentinfo\form\edit_form(
         'ouid'           => $ouid,         // ✅ added
         'studentmap'     => $studentmap ?? null, // if you have this
         'studentinfo'    => $studentinfo,  // ✅ added
+        'activetab'      => $activetab,
 
         'acad_list'      => $acad_list,
         'acad_editrec'   => $acad_editrec,
@@ -1068,7 +1070,6 @@ if (!empty($main)) {
 $mform->set_data($set);
 
 /* ===================== NATIVE TABS (no JS) ===================== */
-$activetab = optional_param('tab', 'sec_identity', PARAM_ALPHANUMEXT);
 
 // Define your tabs (key => label). Adjust labels as needed.
 // Tab labels (key => label) – now from language strings (English).

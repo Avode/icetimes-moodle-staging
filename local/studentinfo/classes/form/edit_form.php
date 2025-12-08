@@ -23,6 +23,7 @@ class edit_form extends \moodleform {
         
         $studentinfo = $cd['studentinfo'] ?? null;
         $studentid   = $studentinfo->id ?? 0;
+        $activetab   = $cd['activetab'] ?? 'sec_identity';
         
         $fs          = get_file_storage();
         $usercontext = \context_user::instance($user->id);
@@ -121,7 +122,7 @@ class edit_form extends \moodleform {
         $mform->addElement('hidden', 'id'); // local_studentinfo.id (if exists)
         $mform->setType('id', PARAM_INT);
 
-        $mform->addElement('hidden', 'activetab', 'sec_identity'); // default first tab
+        $mform->addElement('hidden', 'activetab', $activetab); // default first tab
         $mform->setType('activetab', PARAM_ALPHANUMEXT);
 
         // ---------------------------------------------------------------------
