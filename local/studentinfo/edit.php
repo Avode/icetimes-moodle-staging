@@ -8,6 +8,7 @@ require_login();
 
 $context = context_system::instance();
 //require_capability('local/studentinfo:edit', $context);
+//If you see this, github works
 
 global $DB, $PAGE, $OUTPUT, $SESSION, $USER;
 $userid = required_param('userid', PARAM_INT);
