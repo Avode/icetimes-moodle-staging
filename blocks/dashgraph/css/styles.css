@@ -1,0 +1,8 @@
+.greydiv {
+    background-color: #ced4da;
+    cursor: pointer;
+  }
+  
+  .greydiv:hover {
+    background-color: #adb5bd;
+  }

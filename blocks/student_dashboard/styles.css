@@ -1,0 +1,76 @@
+/* Layout rows: 2 cards per row on desktop, stacked on mobile */
+.bsd { display: grid; gap: 1rem; }
+
+.bsd-rowgrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 900px) {
+  .bsd-rowgrid { grid-template-columns: 1fr 1fr; }
+}
+
+.bsd-card {
+  background: #fff;
+  border: 1px solid #e3e5e7;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+.bsd-card-blue {
+  background: linear-gradient(135deg, #3CA6FF 0%, #6EBEFF 55%, #A7D8FF 100%);
+  color:white;
+  border: 1px solid #e3e5e7;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.bsd-personal { display: grid; grid-template-columns: 96px 1fr; gap: 12px; align-items: center; }
+.bsd-avatar img { border-radius: 50%; width: 96px; height: 96px; object-fit: cover; }
+.bsd-name { font-weight: 600; font-size: 1.05rem; margin-bottom: 4px; }
+.bsd-rowtext { color: #555; margin-bottom: 2px; }
+
+.bsd-kpi-grid { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 8px; }
+.bsd-kpi-item { background: #f7f9fb; border: 1px solid #e6edf3; padding: 8px; border-radius: 8px; text-align: center; }
+.bsd-k { font-size: .75rem; color: #6b7280; }
+.bsd-v { font-size: 1.1rem; font-weight: 600; }
+.bsd-badge { display: inline-block; background: #eef6ff; border: 1px solid #cfe3ff; color: #1f4e99; padding: 2px 8px; margin: 6px 6px 0 0; border-radius: 999px; font-size: .75rem; }
+
+.bsd-subtitle { font-weight: 600; margin-top: 6px; }
+
+.bsd-list { list-style: none; padding-left: 0; margin: 0; }
+.bsd-list li { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed #eee; padding: 6px 0; }
+.bsd-chip { font-size: .75rem; background: #f1f5f9; border: 1px solid #e2e8f0; padding: 2px 8px; border-radius: 999px; margin-right: 8px; }
+.bsd-duedate { font-size: .8rem; color: #666; margin-left: auto; }
+
+.bsd-table th, .bsd-table td { padding: 6px 8px; }
+
+/* Action rows under cards */
+.bsd-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+.bsd-actions-wrap { flex-wrap: wrap; }
+
+/* If your theme already provides Bootstrap .btn classes, these will inherit it.
+   If not, provide a minimal fallback below. */
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  text-decoration: none;
+}
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border-color: #1e40af;
+}
+.btn-secondary {
+  background: #f3f4f6;
+  color: #111827;
+  border-color: #d1d5db;
+}
+.btn:hover { opacity: .9; }

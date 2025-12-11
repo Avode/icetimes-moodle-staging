@@ -1,0 +1,129 @@
+<div class="bsd">
+
+  <!-- Row 1: Personal Info + Performance -->
+  <div class="bsd-rowgrid">
+    <section class="bsd-card-blue">
+      <h3>{{strings.personal}}</h3>
+      <div class="bsd-personal">
+        <div class="bsd-avatar">{{{personal.picturehtml}}}</div>
+        <div class="bsd-meta">
+          <div class="bsd-name">{{personal.fullname}}</div>
+          <div class="bsd-rowtext"><strong>ID:</strong> {{personal.studentid}}</div>
+          <div class="bsd-rowtext"><strong>Program:</strong> {{personal.program}}</div>
+          <div class="bsd-rowtext"><strong>Cohort:</strong> {{personal.cohort}}</div>
+          <div class="bsd-rowtext"><strong>OU:</strong> {{personal.orgunit}}</div>
+          <div class="bsd-rowtext"><strong>Email:</strong> {{personal.email}}</div>
+          <div class="bsd-rowtext"><strong>Phone:</strong> {{personal.phone}}</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bsd-card">
+      <h3>{{strings.kpi}}</h3>
+      <div class="bsd-kpi">
+        <div class="bsd-kpi-grid">
+          <div class="bsd-kpi-item"><div class="bsd-k">GPA</div><div class="bsd-v">{{kpi.gpa}}</div></div>
+          <div class="bsd-kpi-item"><div class="bsd-k">CGPA</div><div class="bsd-v">{{kpi.cgpa}}</div></div>
+          <div class="bsd-kpi-item"><div class="bsd-k">In Progress</div><div class="bsd-v">{{kpi.courses_inprogress}}</div></div>
+          <div class="bsd-kpi-item"><div class="bsd-k">Avg Grade</div><div class="bsd-v">{{kpi.avg_grade}}</div></div>
+          <div class="bsd-kpi-item"><div class="bsd-k">Attendance</div><div class="bsd-v">{{kpi.attendance_rate}}</div></div>
+        </div>
+        {{#kpi.badges}}
+          <span class="bsd-badge">{{name}}</span>
+        {{/kpi.badges}}
+
+        <!-- Link to current courses -->
+        <div class="bsd-actions">
+          <a class="btn btn-primary" href="../my/courses.php">Current Courses</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Row 2: Facilities + Tasks -->
+  <div class="bsd-rowgrid">
+    <section class="bsd-card">
+      <h3>Facilities</h3>
+      <div class="bsd-assets">
+        <div class="bsd-subtitle">Hostel</div>
+        <div class="bsd-rowtext">
+          Block: <strong>{{assets.hostel.building}}</strong> • Room: <strong>{{assets.hostel.room}}</strong> •
+          {{assets.hostel.validfrom}} → {{assets.hostel.validto}}
+        </div>
+
+        <div class="bsd-subtitle">Weapon</div>
+        <div class="bsd-rowtext">
+          Type: {{assets.weapon.type}} • Serial: {{assets.weapon.serial}} •
+          Issued: {{assets.weapon.issued}} • Return by: {{assets.weapon.returnby}}
+        </div>
+
+        <div class="bsd-subtitle">Transport</div>
+        <div class="bsd-rowtext">
+          Use the booking portal to request transport or view existing bookings.
+        </div>
+      </div>
+
+      <!-- Link to logistics booking -->
+      <div class="bsd-actions">
+        <a class="btn btn-secondary" href="../local/logistics/booking/index.php">Open Booking Portal</a>
+      </div>
+    </section>
+
+    <section class="bsd-card">
+      <h3>{{strings.tasks}}</h3>
+      <ul class="bsd-list">
+        {{#tasks.items}}
+          <li>
+            <span class="bsd-chip">{{type}}</span>
+            <a href="{{url}}">{{title}}</a>
+            <span class="bsd-duedate">Due: {{duedate}}</span>
+          </li>
+        {{/tasks.items}}
+      </ul>
+    </section>
+  </div>
+
+  <!-- Row 3: Assets (table) + Library -->
+  <div class="bsd-rowgrid">
+    <section class="bsd-card">
+      <h3>Assets</h3>
+      <table class="generaltable bsd-table">
+        <thead>
+          <tr><th>Item</th><th>Qty</th><th>Draw Date</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{assets.weapon.type}}</td>
+            <td>1</td>
+            <td>{{assets.weapon.issued}}</td>
+            <td>Due {{assets.weapon.returnby}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="bsd-card">
+      <h3>{{strings.library}}</h3>
+      <table class="generaltable bsd-table">
+        <thead>
+          <tr><th>Title</th><th>Due</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          {{#library.loans}}
+            <tr>
+              <td>{{title}}</td>
+              <td>{{duedate}}</td>
+              <td>{{status}}</td>
+            </tr>
+          {{/library.loans}}
+        </tbody>
+      </table>
+      <!-- Library quick actions -->
+      <div class="bsd-actions bsd-actions-wrap">
+        <a class="btn btn-secondary" href="../local/library/discover_virtual.php?orgunitid=0">Virtual Library</a>
+        <a class="btn btn-secondary" href="../local/library/discover_physical.php?orgunitid=0">Physical Library</a>
+      </div>
+    </section>
+  </div>
+
+</div>
